@@ -237,8 +237,10 @@ void menu_backlash();
   #endif
 #endif
 
+#if MOTHERBOARD != BOARD_MELZI_CREALITY
 #if BOTH(AUTOTEMP, HAS_TEMP_HOTEND) || EITHER(PID_AUTOTUNE_MENU, PID_EDIT_MENU)
   #define SHOW_MENU_ADVANCED_TEMPERATURE 1
+#endif
 #endif
 
 //
@@ -513,7 +515,9 @@ void menu_advanced_steps_per_mm() {
 }
 
 void menu_advanced_settings() {
+  #if MOTHERBOARD != BOARD_MELZI_CREALITY
   const bool is_busy = printer_busy();
+  #endif
 
   #if ENABLED(SD_FIRMWARE_UPDATE)
     bool sd_update_state = settings.sd_update_status();
@@ -522,6 +526,7 @@ void menu_advanced_settings() {
   START_MENU();
   BACK_ITEM(MSG_CONFIGURATION);
 
+  #if MOTHERBOARD != BOARD_MELZI_CREALITY
   #if DISABLED(SLIM_LCD_MENUS)
 
     #if HAS_M206_COMMAND
@@ -558,6 +563,8 @@ void menu_advanced_settings() {
   // M92 - Steps Per mm
   if (!is_busy)
     SUBMENU(MSG_STEPS_PER_MM, menu_advanced_steps_per_mm);
+
+  #endif // !BOARD_MELZI_CREALITY
 
   #if ENABLED(BACKLASH_GCODE)
     SUBMENU(MSG_BACKLASH, menu_backlash);

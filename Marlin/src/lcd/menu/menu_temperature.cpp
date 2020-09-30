@@ -262,6 +262,7 @@ void menu_temperature() {
 
   #endif // HAS_FAN
 
+  #if MOTHERBOARD != BOARD_MELZI_CREALITY
   #if PREHEAT_COUNT
     //
     // Preheat for Materials 1 to 5
@@ -274,6 +275,7 @@ void menu_temperature() {
         ACTION_ITEM_S(ui.get_preheat_label(m), MSG_PREHEAT_M, do_preheat_end_m);
       #endif
     }
+  #endif
   #endif
 
   #if HAS_TEMP_HOTEND || HAS_HEATED_BED
