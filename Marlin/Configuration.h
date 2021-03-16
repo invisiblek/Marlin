@@ -1284,10 +1284,10 @@
   #define GRID_MAX_POINTS_X 5
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
-  #define PROBING_MARGIN_LEFT 35
-  #define PROBING_MARGIN_RIGHT 35
-  #define PROBING_MARGIN_FRONT 35
-  #define PROBING_MARGIN_BACK 35
+  #define PROBING_MARGIN_LEFT 20
+  #define PROBING_MARGIN_RIGHT 20
+  #define PROBING_MARGIN_FRONT 20
+  #define PROBING_MARGIN_BACK 20
 
   // Probe along the Y axis, advancing X after each column
   //#define PROBE_Y_FIRST
